@@ -6,23 +6,72 @@ function displayDay() {
 
 displayDay();
 
-// $(".saveBtn").on("click", function () {
-//     // TODO: Add a listener for click events on the save button. This code should
-//     // use the id in the containing time-block as a key to save the user input in
-//     // local storage. HINT: What does `this` reference in the click listener
-//     // function? How can DOM traversal be used to get the "hour-x" id of the
-//     // time-block containing the button that was clicked? How might the id be
-//     // useful when saving the description in local storage?
-    
-//     // TODO: Add code to apply the past, present, or future class to each time
-//     // block by comparing the id to the current hour. HINTS: How can the id
-//     // attribute of each time-block be used to conditionally add or remove the
-//     // past, present, and future classes? How can Day.js be used to get the
-//     // current hour in 24-hour time?
-//     //
-//     // TODO: Add code to get any user input that was saved in localStorage and set
-//     // the values of the corresponding textarea elements. HINT: How can the id
-//     // attribute of each time-block be used to do this?
-//     //
-//     // TODO: Add code to display the current date in the header of the page.
-//   });
+function eachHour() {
+  $(".time-block").each(function() {
+    var scheduledHour = parseInt($(this).attr("id"));
+
+    // Ensure the current hour is read in integar
+    var currentHour = parseInt(dayjs().hour());
+
+      if (scheduledHour < currentHour) {
+        $(this).addClass("past");
+      }
+      else if (scheduledHour === currentHour) {
+          $(this).addClass("present");
+      }
+      else {
+          $(this).addClass("future");
+      }
+  });
+}
+
+eachHour();
+
+$(".saveBtn").on("click", function (event) {
+  event.preventDefault();
+
+  const scheduledEvent = $(this).siblings(".description").val();
+  const time = $(this).parent().attr("id");
+
+  localStorage.setItem(time, scheduledEvent);
+});
+
+// Loop through the time blocks and get their saved scheduled events
+for (let i = 9; i < 18; i++) {
+  const scheduledEvent = localStorage.getItem(i);
+  $(`#${i} .description`).val(scheduledEvent);
+}
+
+var quotes = [
+  {
+    quote: `"The key is not to prioritize what's on your schedule, but to schedule your priorities." - Stephen Covey`
+  },
+
+  {
+    quote: `"Tough times never last, but tough people do." - Robert H. Schuller`
+  },
+
+  {
+    quote: `"The best thing about the future is that it comes one day at a time." - Abraham Lincoln`
+  },
+
+  {
+    quote: `"To achieve great things, two things are needed; a plan, and not quite enough time." - Leonard Bernstein`
+  },
+
+  {
+    quote: `"The shorter way to do many things is to only do one thing at a time." - Mozart`
+  },
+];
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Generate a random index
+  var randomIndex = Math.floor(Math.random() * quotes.length);
+
+  // Access the quote object at the random index
+  var randomQuote = quotes[randomIndex].quote;
+
+  // Display the random quote in the footer
+  var quoteElement = document.getElementById("encouragement");
+  quoteElement.innerHTML = randomQuote;
+});
