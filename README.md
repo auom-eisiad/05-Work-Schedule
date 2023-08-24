@@ -2,12 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The goal for the webpage was to provide an easy way to schedule out the user's work schedule within a 9AM - 5PM shift. Through this website, the user is able to keep themselves accountable for whatever they need to get done throughout the day before the end of their shift. While making the website, I was able to better understand how jQuery and Dayjs works. I was also able to imply my knowledge of "this" statement and learn how to manipulate it into my codes.
 
 ## Table of Contents (Optional)
 
@@ -27,21 +22,32 @@ N/A
 Website:
 ![Website](assets/images/website.png)
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Displayed on the site is the current day of the week and a timetable with the hours from 9am to 5pm. The user will notice that some tables are color coded depending on what time of day it is. Grey means it has past, red means it is current that time, and green means that it is coming up. In the timetable, the user is able to input their agenda into the textbox and save it by clicking on the save icon next to it. Once saved, the item will be stored and displayed even if the user refreshes the page so they don't lose their event. After the user is done with planning their schedule, at the bottom of the page there will be some quotes randomly displayed to provide some encouragement throughout their day.
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![hour](assets/images/event.png)
+    ```
+
+    ```md
+    ![encouragement](assets/images/quote.png)
     ```
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+N/A
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+## Codes Used
 
-If you followed tutorials, include links to those here as well.
+The code for the challenge can be found in the following file:
+
+- [script.js](/src/script.js): Contains the Javascript code of the landing page.
+
+- [script.js](/src/script.js) LINE 13: Based on the work of [OpenJS Foundation and jQuery contributors](https://api.jquery.com/each/)
+
+```
+    $(".time-block").each(function() {
+
+```
 
 ## License
 
