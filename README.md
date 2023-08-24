@@ -19,7 +19,7 @@ N/A
 
 ## Usage
 
-Website:
+Website: https://auom-eisiad.github.io/05-Work-Schedule/
 ![Website](assets/images/website.png)
 
 Displayed on the site is the current day of the week and a timetable with the hours from 9am to 5pm. The user will notice that some tables are color coded depending on what time of day it is. Grey means it has past, red means it is current that time, and green means that it is coming up. In the timetable, the user is able to input their agenda into the textbox and save it by clicking on the save icon next to it. Once saved, the item will be stored and displayed even if the user refreshes the page so they don't lose their event. After the user is done with planning their schedule, at the bottom of the page there will be some quotes randomly displayed to provide some encouragement throughout their day.
